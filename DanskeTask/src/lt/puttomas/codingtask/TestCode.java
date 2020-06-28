@@ -23,19 +23,13 @@ public class TestCode {
 	public static int minJumps(int arr[], int a, int b) {
 		int min = Integer.MAX_VALUE;
 
-		// Base case: when source and destination are same 
 		if (b == a) {
 			return 0;
-		}
-        // When nothing is reachable from the given source 
+		} 
 		if (arr[a] == 0) {
 			return Integer.MAX_VALUE;
 		}
-		/*
-		 * Travels through all the points reachable from array[a]. 
-		 * Recursively get the minimum number of jumps needed to reach 
-		 * array[b] from these reachable points. 
-		 */
+		
 		for (int i = a + 1; i <= b && i <= a + arr[a]; i++) {
 			int jumps = minJumps(arr, i, b);
 			if (jumps != Integer.MAX_VALUE && jumps + 1 < min) {
